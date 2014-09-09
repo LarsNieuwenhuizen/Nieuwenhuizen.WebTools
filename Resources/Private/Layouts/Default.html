@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title><f:render section="Title" /></title>
+		<title><f:render section="PageTitle" /></title>
 		<f:base />
 		<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/Libraries/Foundation/css/foundation.css', package: 'Nieuwenhuizen.WebTools')}" type="text/css" media="all" />
 		<script type="text/javascript" src="{f:uri.resource(path: 'Scripts/Libraries/Foundation/js/vendor/modernizr.js', package: 'Nieuwenhuizen.WebTools')}"></script>
@@ -10,7 +10,6 @@
 	<body>
 		<f:flashMessages class="flashmessages" />
 
-		<h1><f:render section="Title" /></h1>
 		<f:render section="Content" />
 
 		<script src="//code.jquery.com/jquery.js"></script>
