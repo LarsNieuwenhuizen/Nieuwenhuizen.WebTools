@@ -1,0 +1,8 @@
+-
+  name: 'Default route'
+  uriPattern: ''
+  defaults:
+    '@package':    'Nieuwenhuizen.WebTools'
+    '@controller': 'Standard'
+    '@action':     'index'
+    '@format':     'html'
