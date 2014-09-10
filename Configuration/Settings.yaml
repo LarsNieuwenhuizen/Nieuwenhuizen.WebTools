@@ -1,0 +1,17 @@
+TYPO3:
+  Flow:
+    security:
+      enable: TRUE
+      authentication:
+        providers:
+          WebToolsInterfaceProvider:
+            provider: 'PersistedUsernamePasswordProvider'
+            requestPatterns:
+              controllerObjectName: 'Nieuwenhuizen\WebTools\Controller\.*'
+            entryPoint: 'WebRedirect'
+            entryPointOptions:
+              routeValues:
+                '@package': 'Nieuwenhuizen.WebTools'
+                '@controller': 'WebTools'
+                '@action': 'index'
+                '@format': 'html'

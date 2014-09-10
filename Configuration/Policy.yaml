@@ -1,0 +1,17 @@
+resources:
+  methods:
+    WebToolsIndex: method(Nieuwenhuizen\WebTools\Controller\WebToolsController->indexAction())
+    WebToolsLogin: method(Nieuwenhuizen\WebTools\Controller\WebToolsController->loginAction())
+    WebToolsList: method(Nieuwenhuizen\WebTools\Controller\WebToolsController->listAction())
+
+roles:
+  WebToolsUser: []
+
+acls:
+  Everybody:
+    methods:
+      WebToolsIndex: GRANT
+      WebToolsLogin: GRANT
+  WebToolsUser:
+    methods:
+      WebToolsList: GRANT
