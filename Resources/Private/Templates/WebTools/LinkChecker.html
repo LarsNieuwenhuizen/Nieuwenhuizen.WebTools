@@ -1,3 +1,4 @@
+{namespace n=Nieuwenhuizen\WebTools\ViewHelpers}
 <f:layout name="Default" />
 
 <f:section name="PageTitle">Link Checker</f:section>
@@ -6,8 +7,81 @@
 	<div class="row">
 		<div class="large-12 large-centered columns">
 			<h1>Link Checker</h1>
-			<h3 class="subheader">Insert on or multiple uri's and log their response.</h3>
+			<h3 class="subheader">Insert one or multiple uri's and log their response.</h3>
 			<hr />
 		</div>
 	</div>
+	<div class="row">
+		<div class="large-6 columns">
+			<h5>Detailed info on single url</h5>
+			<f:form action="LinkChecker" controller="WebTools" package="Nieuwenhuizen.WebTools">
+				<div class="row collapse">
+					<div class="small-3 large-2 columns">
+						<span class="prefix">http://</span>
+					</div>
+					<div class="small-9 large-8 columns">
+						<f:form.textfield placeholder="Enter your URL..." name="singleUri" />
+					</div>
+					<div class="large-2 columns">
+						<f:form.submit value="Check" class="button postfix" />
+					</div>
+				</div>
+			</f:form>
+		</div>
+	</div>
+	<f:if condition="{uriResponse}">
+		<div class="row">
+			<div class="large-6 columns">
+				<f:switch expression="{uriResponse.http_code}">
+					<f:case value="200">
+						<div data-alert class="alert-box success">
+							<strong>Normal</strong> {uriResponse.http_code}
+						</div>
+					</f:case>
+					<f:case value="301">
+						<div data-alert class="alert-box success">
+							<strong>Permanent redirect</strong> {uriResponse.http_code}
+						</div>
+					</f:case>
+					<f:case value="404">
+						<div data-alert class="alert-box alert">
+							<strong>Not found</strong> {uriResponse.http_code}
+						</div>
+					</f:case>
+					<f:case value="500">
+						<div data-alert class="alert-box alert">
+							<strong>Error</strong> {uriResponse.http_code}
+						</div>
+					</f:case>
+					<f:defaultCase>
+						<div data-alert class="alert-box">
+							{uriResponse.http_code}
+						</div>
+					</f:defaultCase>
+				</f:switch>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-6 columns">
+				<table>
+					<thead>
+						<tr>
+							<th width="30%">Property</th>
+							<th>Value</th>
+						</tr>
+					</thead>
+					<tbody>
+						<f:for each="{uriResponse}" key="property" as="detail">
+							<n:typeOf type="{0: 'string', 1: 'boolean', 2: 'integer', 3: 'double'}" variable="{detail}">
+								<tr>
+									<td>{property}</td>
+									<td>{detail}</td>
+								</tr>
+							</n:typeOf>
+						</f:for>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</f:if>
 </f:section>
