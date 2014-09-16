@@ -1,17 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js" lang="en" dir="ltr">
 	<head>
 		<meta charset="utf-8">
-		<title><f:render section="PageTitle" /></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title><f:render section="PageTitle" /> | Web Tools</title>
 		<f:base />
-		<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/Libraries/Foundation/css/foundation.css', package: 'Nieuwenhuizen.WebTools')}" type="text/css" media="all" />
-		<script type="text/javascript" src="{f:uri.resource(path: 'Scripts/Libraries/Foundation/js/vendor/modernizr.js', package: 'Nieuwenhuizen.WebTools')}"></script>
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/Libraries/Foundation/css/foundation.min.css', package: 'Nieuwenhuizen.WebTools')}" type="text/css" media="all" />
+		<script src="{f:uri.resource(path: 'Scripts/Libraries/Foundation/Vendor/modernizr.js', package: 'Nieuwenhuizen.WebTools')}"></script>
 	</head>
 	<body>
+		<f:render partial="topbar" />
 
 		<f:render section="Content" />
 
-		<script src="//code.jquery.com/jquery.js"></script>
-		<script type="text/javascript" src="{f:uri.resource(path: 'Scripts/Libraries/Foundation/js/foundation.min.js', package: 'Nieuwenhuizen.WebTools')}"></script>
+		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="{f:uri.resource(path: 'Scripts/Libraries/Foundation/foundation.min.js', package: 'Nieuwenhuizen.WebTools')}"></script>
+		<script src="{f:uri.resource(path: 'Scripts/Libraries/Foundation/foundation.topbar.js', package: 'Nieuwenhuizen.WebTools')}"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function() {
+				$(document).foundation();
+			});
+		</script>
 	</body>
 </html>

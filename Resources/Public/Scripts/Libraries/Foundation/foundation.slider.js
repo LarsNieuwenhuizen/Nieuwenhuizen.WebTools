@@ -4,7 +4,7 @@
   Foundation.libs.slider = {
     name : 'slider',
 
-    version : '5.4.2',
+    version : '5.3.3',
 
     settings: {
       start: 0,
@@ -127,15 +127,6 @@
       $handle.parent().attr(this.attr_name(), value).trigger('change').trigger('change.fndtn.slider');
 
       $handle.parent().children('input[type=hidden]').val(value);
-
-      if (!$handle[0].hasAttribute('aria-valuemin')) {
-        $handle.attr({
-          'aria-valuemin': settings.start,
-          'aria-valuemax': settings.end,
-        });
-      }
-      $handle.attr('aria-valuenow', value);
-
 
       if (settings.input_id != '') {
         $(settings.display_selector).each(function(){
