@@ -24,6 +24,14 @@ class WebToolsController extends ActionController {
 	/**
 	 * @return void
 	 */
+	public function logoutAction() {
+		$this->authenticationManager->logout();
+		$this->redirect('index');
+	}
+
+	/**
+	 * @return void
+	 */
 	public function listAction() {
 	}
 
@@ -37,6 +45,13 @@ class WebToolsController extends ActionController {
 			$this->addFlashMessage('Error while attempting to login. Please check your username and password');
 		}
 		$this->redirect('index');
+	}
+
+	/**
+	 * @return void
+	 */
+	public function linkCheckerAction() {
+
 	}
 
 }

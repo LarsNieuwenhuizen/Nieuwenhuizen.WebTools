@@ -6,12 +6,15 @@
 		<title><f:render section="PageTitle" /> | Web Tools</title>
 		<f:base />
 		<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/Libraries/Foundation/css/foundation.min.css', package: 'Nieuwenhuizen.WebTools')}" type="text/css" media="all" />
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/Main.css', package: 'Nieuwenhuizen.WebTools')}" type="text/css" media="all" />
 		<script src="{f:uri.resource(path: 'Scripts/Libraries/Foundation/Vendor/modernizr.js', package: 'Nieuwenhuizen.WebTools')}"></script>
 	</head>
 	<body>
 		<f:render partial="topbar" />
 
-		<f:render section="Content" />
+		<section role="main" scroll-container class="main">
+			<f:render section="Content" />
+		</section>
 
 		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script src="{f:uri.resource(path: 'Scripts/Libraries/Foundation/foundation.min.js', package: 'Nieuwenhuizen.WebTools')}"></script>

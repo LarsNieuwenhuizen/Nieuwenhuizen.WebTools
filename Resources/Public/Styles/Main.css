@@ -1,0 +1,15 @@
+/* line 3, Scss/_Basics.scss */
+body {
+  background-color: #ffffff;
+}
+/* line 6, Scss/_Basics.scss */
+body section.main {
+  margin-top: 30px;
+}
+
+/* line 11, Scss/_Basics.scss */
+.row {
+  max-width: 80rem;
+}
+
+/*# sourceMappingURL=Main.css.map */

@@ -4,7 +4,7 @@
 
 <f:section name="Content">
 	<div class="row">
-		<div class="large-6 large-centered columns">
+		<div class="large-4 large-centered columns">
 			<h1>Login</h1>
 		</div>
 	</div>
@@ -19,9 +19,9 @@
 
 
 	<div class="row">
-		<div class="large-6 large-centered columns">
+		<div class="large-4 large-centered columns">
 			<f:form action="login" controller="WebTools">
-				<f:form.textfield name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][username]" class="form-control" placeholder="Username" />
+				<f:form.textfield name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][username]" class="large-12.columns" placeholder="Username" />
 				<f:form.textfield type="password" name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][password]" class="form-control" placeholder="Password" />
 				<f:form.submit value="Login" class="small round button expand center" />
 			</f:form>

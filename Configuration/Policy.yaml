@@ -2,6 +2,7 @@ resources:
   methods:
     WebToolsIndex: method(Nieuwenhuizen\WebTools\Controller\WebToolsController->indexAction())
     WebToolsLogin: method(Nieuwenhuizen\WebTools\Controller\WebToolsController->loginAction())
+    WebToolsLogout: method(Nieuwenhuizen\WebTools\Controller\WebToolsController->loginAction())
     WebToolsList: method(Nieuwenhuizen\WebTools\Controller\WebToolsController->listAction())
 
 roles:
@@ -15,3 +16,4 @@ acls:
   WebToolsUser:
     methods:
       WebToolsList: GRANT
+      WebToolsLogout: GRANT

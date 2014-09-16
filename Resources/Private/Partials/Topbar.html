@@ -1,0 +1,20 @@
+<div class="sticky">
+	<nav class="top-bar docs-bar hide-for-small" data-topbar data-options="sticky_on: large">
+		<ul class="title-area">
+			<li class="name">
+				<h1>
+					<a href="/">Web Tools</a>
+				</h1>
+			</li>
+		</ul>
+		<section class="top-bar-section">
+			<ul class="right">
+				<f:security.ifAccess resource="WebToolsLogout">
+					<li class="has-form">
+						<f:link.action action="logout" controller="WebTools" class="small button">Logout</f:link.action>
+					</li>
+				</f:security.ifAccess>
+			</ul>
+		</section>
+	</nav>
+</div>
