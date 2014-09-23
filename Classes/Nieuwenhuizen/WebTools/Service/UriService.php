@@ -21,7 +21,25 @@ class UriService {
 		curl_exec($ch);
 		$info = curl_getinfo($ch);
 		curl_close($ch);
+		unset($ch,$uri);
 		return json_encode($info);
+	}
+
+	/**
+	 * @param string $uri
+	 * @return integer
+	 */
+	public function getHttpResponse($uri) {
+		$urlParts = parse_url($uri);
+
+		$client = new \TYPO3\Flow\Http\Client\CurlEngine();
+		$request = new \TYPO3\Flow\Http\Request(array(), array(), array(), array(
+			'HTTPS' => isset($urlParts['scheme']) && $urlParts['scheme'] === 'https' ? 'on' : NULL,
+			'HTTP_HOST' => $urlParts['host'],
+			'REQUEST_URI' => isset($urlParts['query']) ? '?' . $urlParts['query'] : NULL
+		));
+
+		return $client->sendRequest($request)->getStatusCode();
 	}
 
 }

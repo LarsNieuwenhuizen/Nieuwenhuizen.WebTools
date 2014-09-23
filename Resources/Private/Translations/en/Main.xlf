@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file original="" product-name="Nieuwenhuizen.WebTools" source-language="en" target-language="nl" datatype="plaintext">
+		<body>
+			<trans-unit id="http_response.200" xml:space="preserve">
+				<source>Normal</source>
+				<target>Normal</target>
+			</trans-unit>
+			<trans-unit id="http_response.301" xml:space="preserve">
+				<source>Permanent redirect</source>
+				<target>Permanent redirect</target>
+			</trans-unit>
+			<trans-unit id="http_response.400" xml:space="preserve">
+				<source>Bad request</source>
+				<target>Bad request</target>
+			</trans-unit>
+			<trans-unit id="http_response.404" xml:space="preserve">
+				<source>Not found</source>
+				<target>Not found</target>
+			</trans-unit>
+			<trans-unit id="http_response.403" xml:space="preserve">
+				<source>No access</source>
+				<target>No access</target>
+			</trans-unit>
+
+			<trans-unit id="alert-box.200" xml:space="preserve">
+				<source>success</source>
+				<target>success</target>
+			</trans-unit>
+			<trans-unit id="alert-box.301" xml:space="preserve">
+				<source>success</source>
+				<target>success</target>
+			</trans-unit>
+			<trans-unit id="alert-box.400" xml:space="preserve">
+				<source>alert</source>
+				<target>alert</target>
+			</trans-unit>
+			<trans-unit id="alert-box.404" xml:space="preserve">
+				<source>alert</source>
+				<target>alert</target>
+			</trans-unit>
+			<trans-unit id="alert-box.403" xml:space="preserve">
+				<source>alert</source>
+				<target>alert</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

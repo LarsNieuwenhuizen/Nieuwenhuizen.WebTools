@@ -56,12 +56,23 @@ class WebToolsController extends ActionController {
 
 	/**
 	 * @param string $singleUri
+	 * @param string $uris
+	 *
 	 * @return void
 	 */
-	public function linkCheckerAction($singleUri = '') {
+	public function linkCheckerAction($singleUri = '', $uris = '') {
 		if ($singleUri !== '') {
 			$uriResponse = $this->uriService->returnUriResponse($singleUri);
 			$this->view->assign('uriResponse', json_decode($uriResponse, true));
+		}
+
+		if ($uris !== '') {
+			$uris = explode("\n", $uris);
+			$responses = [];
+			foreach ($uris as $key => $uri) {
+				$responses[$uri] = $this->uriService->getHttpResponse(trim($uri));
+			}
+			$this->view->assign('responses', $responses);
 		}
 	}
 

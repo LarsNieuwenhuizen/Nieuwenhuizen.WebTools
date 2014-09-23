@@ -28,37 +28,48 @@
 				</div>
 			</f:form>
 		</div>
+		<div class="large-6 columns">
+			<h5>See response of multiple url's <sup>(each on newline)</sup></h5>
+			<f:form action="linkChecker" controller="WebTools" package="Nieuwenhuizen.WebTools">
+				<f:form.textarea name="uris" />
+				<f:form.submit class="button posix" value="submit" />
+			</f:form>
+		</div>
 	</div>
+
+	<f:if condition="{responses}">
+		<div class="row">
+			<div class="large-12 columns">
+				<table>
+					<thead>
+					<tr>
+						<th>Url</th>
+						<th>Response</th>
+					</tr>
+					</thead>
+					<tbody>
+					<f:for each="{responses}" key="website" as="response">
+						<tr>
+							<td>
+								{website}
+							</td>
+							<td class="success">
+								<strong>{f:translate(id: 'http_response.{response}')}</strong>
+							</td>
+						</tr>
+					</f:for>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</f:if>
+
 	<f:if condition="{uriResponse}">
 		<div class="row">
 			<div class="large-6 columns">
-				<f:switch expression="{uriResponse.http_code}">
-					<f:case value="200">
-						<div data-alert class="alert-box success">
-							<strong>Normal</strong> {uriResponse.http_code}
-						</div>
-					</f:case>
-					<f:case value="301">
-						<div data-alert class="alert-box success">
-							<strong>Permanent redirect</strong> {uriResponse.http_code}
-						</div>
-					</f:case>
-					<f:case value="404">
-						<div data-alert class="alert-box alert">
-							<strong>Not found</strong> {uriResponse.http_code}
-						</div>
-					</f:case>
-					<f:case value="500">
-						<div data-alert class="alert-box alert">
-							<strong>Error</strong> {uriResponse.http_code}
-						</div>
-					</f:case>
-					<f:defaultCase>
-						<div data-alert class="alert-box">
-							{uriResponse.http_code}
-						</div>
-					</f:defaultCase>
-				</f:switch>
+				<div data-alert class="alert-box {f:translate(id: 'alert-box.{uriResponse.http_code}')}">
+					<strong>{f:translate(id: 'http_response.{uriResponse.http_code}')}</strong> {uriResponse.http_code}
+				</div>
 			</div>
 		</div>
 		<div class="row">
